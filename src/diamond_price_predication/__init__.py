@@ -1,18 +1,18 @@
 import os
 import sys
-import logging 
-
-log_dir="LOG"
-log_file_path= os.path.join(log_dir, "running_log.log")
-os.makedirs(log_dir, exist_ok=True)
+import logging
 
 logging_str="[%(asctime)s : %(levelname)s: %(module)s : %(message)s]"
 
-logging.basicConfig(level=logging.INFO, format=logging_str, 
-                    handlers=[
-                        logging.FileHandler(log_file_path),
-                        logging.StreamHandler(sys.stdout)
-                    ])
+log_dir="logs"
+log_filepath=os.path.join(log_dir, "running_logs.log")
+os.makedirs(log_dir, exist_ok=True)
 
-logger=logging.getLogger("diamond_price_predication_project")
-
+logging.basicConfig(level=logging.INFO,
+                     format=logging_str, 
+                     
+                     handlers=[logging.FileHandler(log_filepath), # saving the log in directory.
+                               logging.StreamHandler(sys.stdout) # print log in our terminal.
+                               ]
+                     )
+logger=logging.getLogger("mlProjectLogger")

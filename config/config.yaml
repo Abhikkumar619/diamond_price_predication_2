@@ -1,0 +1,15 @@
+artifacts_root: artifacts
+
+data_ingestion: 
+  root_dir: artifacts/data_ingestion
+  source_URL: https://github.com/Abhikkumar619/dataset/commit/d3abc1910049d855c6a1ec6bfc2ab09a8503a58c
+  local_data_file: artifacts/data_ingestion/diamond_data.zip
+  unzip_dir: artifacts/data_ingestion
+
+
+
+data_validation: 
+  root_dir: artifacts/data_validation
+  unzip_data_dir: artifacts\data_ingestion\diamond_data.csv
+  STATUS_FILE: artifacts/data_validation/status.txt
+    
