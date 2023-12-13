@@ -3,6 +3,7 @@ from diamond_price_predication.utils.common import read_yaml, create_dicectories
 from diamond_price_predication.entity.config_entity import DataIngestionConfig
 from diamond_price_predication.entity.config_entity import DataValidationConfig
 from diamond_price_predication.entity.config_entity import DataTransformationConfig
+from diamond_price_predication.entity.config_entity import DataTrainingConfig
 
 
 class ConfigurationManger:
@@ -55,6 +56,28 @@ class ConfigurationManger:
         )
         
         return data_transformation_config
+    
+    
+            
+    def get_data_training_Config(self)-> DataTrainingConfig: 
+        
+        config=self.config.data_trainer
+        schema=self.schema.TARGET_COLUMN
+        params=self.params.ElasticNet
+        
+        create_dicectories([config.root_dir])
+        
+        
+        datatraing_Config=DataTrainingConfig(
+            root_dir=config.root_dir,
+            train_data_path=config.train_data_path,
+            test_data_path=config.test_data_path,
+            model_name=config.model_name,
+            l1_ratio=params.alpha,
+            alpha=params.l1_ratio,
+            target_column=schema.name
+            )
+        return datatraing_Config
         
         
         

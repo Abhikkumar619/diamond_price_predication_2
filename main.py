@@ -2,7 +2,7 @@ from diamond_price_predication import logger
 from diamond_price_predication.pipeline.stage_1_data_ingestion import DataIngestionTrainingPipeline
 from diamond_price_predication.pipeline.stage_2_data_validation import DataValidationPipeline
 from diamond_price_predication.pipeline.stage_03_data_transformation import DataTransformationPipeline
-
+from diamond_price_predication.pipeline.stage_4_data_training import DataTrainingPipeline
 """
 stage_name= "Data_Ingestion_stage"
 
@@ -14,7 +14,7 @@ try:
 except Exception as e: 
         raise e
     
-"""  
+
 stage_name="Data_validation_stage"    
 try: 
     logger.info(f">>>>>>>>>>>>>>>>>>>>... STAGE {stage_name} STARTED >>>>>>>>>>>>>>>>>>>>>>>>>>>")
@@ -34,4 +34,14 @@ try:
         
 except Exception as e: 
     raise e
+"""   
     
+stage_name="Model_Training"   
+    
+try: 
+    logger.info(f">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> stage {stage_name} STARTED >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n")
+    obj=DataTrainingPipeline()
+    obj.main()
+    logger.info(f">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> stage {stage_name} Ended>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+except  Exception as e: 
+    raise e
