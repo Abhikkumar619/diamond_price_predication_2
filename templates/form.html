@@ -1,0 +1,58 @@
+<html>
+<body>
+<form action="{{url_for('predict_datapoint')}}" method="POST">
+    <div class="form-group">
+        <label for="carat">Carat:</label>
+        <input type="text" id="carat" name="carat" placeholder="Enter carat value (float)">
+    </div>
+
+    <div class="form-group">
+        <label for="depth">Depth:</label>
+        <input type="text" id="depth" name="depth" placeholder="Enter depth value (float)">
+    </div>
+
+    <div class="form-group">  
+        <label for="table">Table:</label>
+        <input type="text" id="table" name="table" placeholder="Enter table value (float)">
+    </div>
+    
+    <div class="form-group">
+        <label for="x">x:</label>
+        <input type="text" id="x" name="x" placeholder="Enter x value (float)">
+    </div>
+  
+    <div class="form-group">
+        <label for="y">y:</label>
+        <input type="text" id="y" name="y" placeholder="Enter y value (float)">
+    </div>
+  
+    <div class="form-group">
+        <label for="z">z:</label>
+        <input type="text" id="z" name="z" placeholder="Enter z value (float)">
+    </div> 
+    
+    <div class="form-group">
+      <label for="cut">cut:</label>
+      <input type="text" id="cut" name="cut" placeholder="Enter cut value (float)">
+  </div> 
+  
+  <div class="form-group">
+    <label for="color">color:</label>
+    <input type="text" id="color" name="color" placeholder="Enter color value (float)">
+  </div> 
+
+  
+  <div class="form-group">
+    <label for="clarity">clarity:</label>
+    <input type="text" id="clarity" name="clarity" placeholder="Enter clarity value (float)">
+  </div>  
+
+    
+  
+<div style="clear:both;"></div>
+  <input type="submit" value="Submit">
+</form>
+
+{{final_result}}
+</body>
+</html>
