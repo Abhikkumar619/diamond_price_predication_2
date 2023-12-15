@@ -22,23 +22,23 @@ def predict_datapoint():
         return render_template('form.html')
     
     else: 
-        carat=float(request.form.get('carat')),
-        depth=float(request.form.get('depth')),
-        table=float(request.form.get('table')),
-        x=float(request.form.get('x')),
-        y=float(request.form.get('y')),
-        z=float(request.form.get('z')),
-        cut=float(request.form.get('cut')),
-        color=float(request.form.get('color')),
-        clarity=float(request.form.get('clarity'))
+        carat=float(request.form['carat'])
+        depth=float(request.form['depth'])
+        table=float(request.form['table'])
+        x=float(request.form['x'])
+        y=float(request.form['y'])
+        z=float(request.form['z'])
+        cut=float(request.form['cut'])
+        color=float(request.form['color'])
+        clarity=float(request.form['clarity'])
         
         final_new_data=[carat,depth,table,x,y,z,cut, color, clarity]
         
-        logger.info(f"Final_new_data {final_new_data}")
+        logger.info(f"Final_new_data: {final_new_data}")
         
-        data=np.array(final_new_data).reshape(1,11)
+        data=np.array(final_new_data).reshape(1,9)
         
-        logger.info(f"final data after reshapeing(1,11) : {data}")
+        logger.info(f"final data after reshapeing(1,9) : {data}")
         
         obj=PredictionPipeline()
         predict=obj.predict(data)
